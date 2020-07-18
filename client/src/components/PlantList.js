@@ -18,10 +18,32 @@ export default class PlantList extends Component {
 			.catch((err) => console.log('error', err));
 	}
 
+	// componentDidUpdate(prevProps, prevState) {
+	// 	const plants = this.state.plants.plantsData;
+	// 	const filteredData = plants.filter((item) => {
+	// 		return JSON.stringify(Object.values(item))
+	// 			.toLowerCase()
+	// 			.includes(this.state.search.toLowerCase());
+	// 	});
+
+	// 	if (filteredData !== this.state.plants.plantsData) {
+	// 		this.setState({ plants: filteredData });
+	// 		console.log('setState');
+	// 	}
+	// }
+
+	handleChange = (e) => {
+		this.setState({ search: e.target.value });
+	};
+
 	render() {
 		return (
 			<main className='plant-list'>
-				<input placeholder='Search' />
+				<input
+					placeholder='Search'
+					value={this.state.search}
+					onChange={this.handleChange}
+				/>
 				{this.state?.plants.plantsData?.map((plant) => (
 					<div className='plant-card' key={plant.id}>
 						<img className='plant-image' src={plant.img} alt={plant.name} />

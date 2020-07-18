@@ -19,25 +19,17 @@ const CheckoutForm = (props) => {
 		() => setShowSuccessMessage(true)
 	);
 
-	// const handleChanges = (e) => {
-	//   setValues({ ...values, [e.target.name]: e.target.value });
-	// };
-
-	// const handleSubmit = (e) => {
-	//   e.preventDefault();
-	//   setShowSuccessMessage(true);
-	// };
-
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
-				<h2>Checkout Form</h2>
+				<h2 data-testid='formHeader'>Checkout Form</h2>
 				<label>
 					First Name:
 					<input
 						name='firstName'
 						value={values.firstName}
 						onChange={handleChanges}
+						data-testid='firstNameInput'
 					/>
 				</label>
 				<label>
@@ -46,6 +38,7 @@ const CheckoutForm = (props) => {
 						name='lastName'
 						value={values.lastName}
 						onChange={handleChanges}
+						data-testid='lastNameInput'
 					/>
 				</label>
 				<label>
@@ -54,21 +47,37 @@ const CheckoutForm = (props) => {
 						name='address'
 						value={values.address}
 						onChange={handleChanges}
+						data-testid='addressInput'
 					/>
 				</label>
 				<label>
 					City:
-					<input name='city' value={values.city} onChange={handleChanges} />
+					<input
+						name='city'
+						value={values.city}
+						onChange={handleChanges}
+						data-testid='cityInput'
+					/>
 				</label>
 				<label>
 					State:
-					<input name='state' value={values.state} onChange={handleChanges} />
+					<input
+						name='state'
+						value={values.state}
+						onChange={handleChanges}
+						data-testid='stateInput'
+					/>
 				</label>
 				<label>
 					Zip:
-					<input name='zip' value={values.zip} onChange={handleChanges} />
+					<input
+						name='zip'
+						value={values.zip}
+						onChange={handleChanges}
+						data-testid='zipInput'
+					/>
 				</label>
-				<button>Checkout</button>
+				<button data-testid='submitButton'>Checkout</button>
 			</form>
 
 			{showSuccessMessage && (
